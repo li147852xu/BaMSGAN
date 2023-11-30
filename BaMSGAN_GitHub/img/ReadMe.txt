@@ -1,0 +1,1 @@
+The directory to put generated fake pictures--result. 
