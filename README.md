@@ -54,4 +54,11 @@ python train.py --options
 ```
 you can see the generated pictures in the 'img' directory.
 
+## Tips
+- If you met the problem about the '.ipynb_checkpoints', directly remove the file of '.ipynb_checkpoints' in the mentioned directory.
+```bash
+ls -a
+rm -r .ipynb_checkpoints
+```
+- If you want to continue training with past model, please modify codes in line 110 of the 'train.py', set the start_epoch, then note off the line 111 and 112, set the path of D and G that you want to use.
 
