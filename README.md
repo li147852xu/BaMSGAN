@@ -148,3 +148,16 @@ python train.py --batchSize 64 --lrg 0.0001 --lrd 0.0001
 PS: Oops!!! After submitting to the github, I just realized that I forgot to set the start epoch of Saving Memory as the Parameter, it is actually a catastrophic forgetting. 
 I will add it in the next version if I have time. Please modify it manually now.
 
+## Citaion
+If you use BaMSGAN in your research, please cite the original paper:
+```
+@article{BaMSGAN,
+  author    = {Li, X.; Li, B.; Fang, M.; Huang, R.; Huang, X},
+  title     = {BaMSGAN: Self-Attention GAN with Blur and Memory for Anime Face Generation},
+  journal   = {Mathematics},
+  volume    = {11},
+  number    = {20},
+  year      = {2023},
+  doi       = {10.3390/math11204401}
+}
+```
