@@ -1,1 +1,0 @@
-The directory to put blur pictures which are generated from command - python blur.py

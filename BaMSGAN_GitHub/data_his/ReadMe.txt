@@ -1,1 +1,0 @@
-The directory to put history data.
