@@ -1,11 +1,11 @@
 # BaMSGAN: self-attention GAN with Blur and Memory for anime face generation
 
-PS: This repository was created nearly 1 years ago, and was reconfigured on 12-15-2024.
-
 ## Introduction of paper
 BaMSGAN (Self-Attention Generative Adversarial Network with Blur and Memory) is a novel network architecture designed for generating high-quality anime faces. It introduces unique features like edge blur preprocessing and a memory repository to enhance image clarity and prevent mode collapse and catastrophic forgetting in the training process.
 
 - Paper link: <https://doi.org/10.3390/math11204401>
+
+PS: This repository was created nearly 1 years ago, and was reconfigured to a new verison on 12-15-2024.
 
 ## Features of model
 - **Self-Attention Mechanism:** Improves clarity and detail in generated anime faces of GAN.
