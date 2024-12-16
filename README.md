@@ -38,7 +38,7 @@ BaMSGAN_GitHub/
 ## Dataset
 - Dataset Link: <https://www.kaggle.com/datasets/splcher/animefacedataset>
 
-This dataset has 63,632 high-quality 96 X 96 anime faces.
+This dataset has 63,632 high-quality 64 X 64 anime faces.
 
 ## Usage
 ### Reproduction
@@ -61,7 +61,7 @@ Attention: For the convenience of using ImageFolder, we set another directory --
 - Blurred data:
 ```bash
 # Read the configuration and just use default parameters if you just want to reproduce our experiments.
-python blur.py
+python src/blur.py
 ```
 ```
 Arguments for the Blurred Dataset Script:
@@ -80,7 +80,7 @@ Then blurred data will be saved in the 'data/data_blur' directory.
 3. Train the model: Run the training script to start training BaMSGAN
 ```bash
 # Read the configuration and just use default parameters if you just want to reproduce our experiments.
-python train.py
+python src/train.py
 ```
 ```
 Arguments for the GAN Training Script:
@@ -109,6 +109,8 @@ Arguments for the GAN Training Script:
                                                Folder for historical data.
 --checkpointG    : str    [default=None]       Path to generator checkpoint.
 --checkpointD    : str    [default=None]       Path to discriminator checkpoint.
+--memeory_epoch  : int    [default=25]         Epoch that start to save memory(work when it >= 25).
+--memeory_size   : int    [default=120]        Size of memory repository, and random deletion will be conducted when it is filled.
 ```
 4. Monitor training process: through the Terminal or log.txt in the 'logs' dictionary
 ```
@@ -129,7 +131,7 @@ This is the fake_samples_epoch_50:
 6. Resume training: the training could be continued from a specific checkpoint
 ```bash
 # resume the training from epoch 51
-python train.py --start_epoch 51 --checkpointG checkpoints/netG_0050.pth --checkpointD checkpoints/netD_0050.pth
+python src/train.py --start_epoch 51 --checkpointG checkpoints/netG_0050.pth --checkpointD checkpoints/netD_0050.pth
 ```
 ### Custom setting
 1.	Custom Dataset:
@@ -140,16 +142,32 @@ python train.py --start_epoch 51 --checkpointG checkpoints/netG_0050.pth --check
 - Modify training parameters in the script or pass them as command-line arguments.
 ```bash
 # just for example and the parameter lists of blur.py and train.py are shown above.
-python train.py --batchSize 64 --lrg 0.0001 --lrd 0.0001
+python src/train.py --batchSize 64 --lrg 0.0001 --lrd 0.0001
 ```
 
 3.	Memory Repository:
 - The memory repository stores historical samples to improve stability and prevent forgetting.
-- ~~Adjust the memory size or disable it in train.py.~~
+- Adjust the number of epoch that start to save memory and the size of memory repository.
+```bash
+# By setting 'memory_epoch' (work when it >= 25) and 'memory_size' in train.py 
+python src/train.py --memory_epoch 30 --memory_size 150
+```
 
-PS: Oops!!! After submitting to the github, I just realized that I forgot to set the start epoch of Saving Memory as the Parameter, it is actually a catastrophic forgetting. 
-I will add it in the next version if I have time. Please modify it manually now.
-
+## Contribution
+Original code: 
+```
+Blur process - Fang, M.; Li, X.
+Memory repository - Li, B.; Li, X.
+Main model and total structure - Li, X.; Li, B.; Fang, M
+Train and test part - Li, X.; Li, B.; Fang, M.; Huang, R.; Huang, X
+Github repository - Li, X.
+```
+New version: 
+```
+Structure optimization - Li, X.
+Total code optimization - Li, X.
+Github repository - Li, X.
+```
 ## Citaion
 If you use BaMSGAN in your research, please cite the original paper:
 ```
